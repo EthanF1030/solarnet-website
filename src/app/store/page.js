@@ -1,9 +1,11 @@
 import SpaceBackground from "../components/SpaceBackground";
+import BuyButton from "../components/BuyButton";
 
 const packages = [
   {
+    id: "comet",
     name: "Comet",
-    price: "$5",
+    price: "£3.99",
     tag: "Starter Rank",
     description:
       "A starter supporter rank with useful quality-of-life perks and a clean supporter identity.",
@@ -17,8 +19,9 @@ const packages = [
     ],
   },
   {
+    id: "nova",
     name: "Nova",
-    price: "$15",
+    price: "£11.99",
     tag: "Supporter Rank",
     description:
       "A stronger supporter rank with more daily fly time, nickname colors, and extra storage.",
@@ -35,8 +38,9 @@ const packages = [
     ],
   },
   {
+    id: "cosmic",
     name: "Cosmic",
-    price: "$30",
+    price: "£22.99",
     tag: "Premium Rank",
     description:
       "A premium supporter rank with better utility, more colors, and expanded player storage.",
@@ -55,8 +59,9 @@ const packages = [
     ],
   },
   {
+    id: "celestial",
     name: "Celestial",
-    price: "$50",
+    price: "£37.99",
     tag: "Ultimate Rank",
     description:
       "The highest supporter rank with the full supporter perk set and the most customization.",
@@ -123,12 +128,7 @@ function PackageCard({ item }) {
           ))}
         </div>
 
-        <a
-          href="#"
-          className="block rounded-xl bg-cyan-500 px-5 py-3 text-center font-semibold text-black transition hover:bg-cyan-400"
-        >
-          Coming Soon
-        </a>
+     <BuyButton rank={item.id} />
       </div>
     </div>
   );
