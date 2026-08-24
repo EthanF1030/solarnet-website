@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-export default function BuyButton({ rank }) {
+export default function BuyButton({ rank, rankName }) {
     const [modalOpen, setModalOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     const [username, setUsername] = useState("");
@@ -104,7 +104,7 @@ export default function BuyButton({ rank }) {
                         </p>
 
                         <h2 className="text-2xl font-bold leading-tight text-white">
-                            Enter Minecraft Username
+                            Purchase {rankName}
                         </h2>
                     </div>
 

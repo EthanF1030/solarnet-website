@@ -81,8 +81,7 @@ export default function VotePage() {
 
         <div className="mt-10 rounded-3xl border border-cyan-400/20 bg-cyan-400/[0.06] p-6 text-center backdrop-blur-md">
           <p className="text-gray-200">
-            Replace the placeholder links with your real voting URLs when your
-            vote pages are ready.
+            Thank you for supporting Solarnet! Your votes help us grow and reach new players. We appreciate your dedication to the community and look forward to seeing you in-game!
           </p>
         </div>
       </section>

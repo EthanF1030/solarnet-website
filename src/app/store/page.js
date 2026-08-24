@@ -128,7 +128,9 @@ function PackageCard({ item }) {
           ))}
         </div>
 
-     <BuyButton rank={item.id} />
+     <BuyButton rank={item.id}
+      rankName={item.name}
+      />
       </div>
     </div>
   );
