@@ -319,7 +319,7 @@ const rankUpLevels = [
   {
     rank: 16,
     next: null,
-    requirement: "Have 10 Emeralds",
+    requirement: "Have 100 Emeralds",
     flight: "1 hour",
     claimBlocks: 100,
   },
