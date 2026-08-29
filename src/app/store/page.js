@@ -1,5 +1,6 @@
 import SpaceBackground from "../components/SpaceBackground";
 import BuyButton from "../components/BuyButton";
+import CrateKeysSection from "../components/CrateKeysSection";
 
 const packages = [
   {
@@ -86,10 +87,6 @@ const packages = [
 
 const extras = [
   {
-    name: "Crate Keys",
-    description: "Optional reward keys for fun cosmetic-style extras.",
-  },
-  {
     name: "Cosmetics",
     description: "Particles, tags, trails, and other visual upgrades.",
   },
@@ -104,7 +101,7 @@ function PackageCard({ item }) {
     <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md transition hover:border-cyan-400/40 hover:bg-cyan-400/[0.06]">
       <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-cyan-400/10 blur-3xl transition group-hover:bg-cyan-400/20" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex h-full flex-col">
         <div className="mb-5 flex items-center justify-between gap-4">
           <div>
             <p className="mb-2 text-xs uppercase tracking-[0.3em] text-cyan-400">
@@ -117,7 +114,9 @@ function PackageCard({ item }) {
           <p className="text-2xl font-bold text-cyan-300">{item.price}</p>
         </div>
 
-        <p className="mb-6 leading-relaxed text-gray-300">{item.description}</p>
+        <p className="mb-6 leading-relaxed text-gray-300">
+          {item.description}
+        </p>
 
         <div className="mb-8 space-y-3">
           {item.perks.map((perk) => (
@@ -128,9 +127,9 @@ function PackageCard({ item }) {
           ))}
         </div>
 
-     <BuyButton rank={item.id}
-      rankName={item.name}
-      />
+        <div className="mt-auto">
+          <BuyButton rank={item.id} rankName={item.name} />
+        </div>
       </div>
     </div>
   );
@@ -153,35 +152,35 @@ export default function StorePage() {
 
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-300">
             Help support Solarnet’s development, hosting, events, and future
-            updates. Store items will be connected to Tebex later.
+            updates. Purchases are securely processed through Tebex and
+            delivered automatically in-game.
           </p>
         </div>
 
-        <div className="mb-16 grid gap-6 lg:grid-cols-3">
+        <div className="mb-16 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
           {packages.map((item) => (
             <PackageCard key={item.name} item={item} />
           ))}
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-black/35 p-8 backdrop-blur-md">
+        <CrateKeysSection />
+
+        <div className="mt-20 rounded-3xl border border-white/10 bg-black/35 p-8 backdrop-blur-md">
           <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-400">
-                Extra Categories
+                More Store Options
               </p>
 
-              <h2 className="text-3xl font-bold text-white">
-                More Store Options
-              </h2>
+              <h2 className="text-3xl font-bold text-white">Coming Later</h2>
             </div>
 
             <p className="max-w-2xl text-gray-300">
-              These sections can later connect to Tebex packages, categories,
-              baskets, and checkout.
+              More ways to support Solarnet will be added as the network grows.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2">
             {extras.map((extra) => (
               <div
                 key={extra.name}
@@ -195,13 +194,6 @@ export default function StorePage() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="mt-10 rounded-3xl border border-cyan-400/20 bg-cyan-400/[0.06] p-6 text-center backdrop-blur-md">
-          <p className="text-gray-200">
-            Payments are not active yet. This page is just the store design
-            until Tebex integration is added.
-          </p>
         </div>
       </section>
     </main>

@@ -3,6 +3,16 @@ const packageMap = {
   nova: process.env.TEBEX_NOVA_PACKAGE_ID,
   cosmic: process.env.TEBEX_COSMIC_PACKAGE_ID,
   celestial: process.env.TEBEX_CELESTIAL_PACKAGE_ID,
+
+lunar_key_1: "7645706",
+  lunar_key_5: "7645716",
+  stellar_key_1: "7645710",
+  stellar_key_5: "7645720",
+  nebula_key_1: "7645711",
+  nebula_key_5: "7645721",
+  galaxy_key_1: "7645712",
+  galaxy_key_5: "7645724",
+
 };
 
 function isValidMinecraftUsername(username) {

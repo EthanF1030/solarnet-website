@@ -210,6 +210,121 @@ const plugins = [
   },
 ];
 
+const rankUpLevels = [
+  {
+    rank: 1,
+    next: 2,
+    requirement: "Break 500 Stone blocks",
+    flight: "5 minutes",
+    claimBlocks: 50,
+  },
+  {
+    rank: 2,
+    next: 3,
+    requirement: "Break 500 Grass blocks",
+    flight: "10 minutes",
+    claimBlocks: 50,
+  },
+  {
+    rank: 3,
+    next: 4,
+    requirement: "Kill 100 Zombies",
+    flight: "15 minutes",
+    claimBlocks: 75,
+  },
+  {
+    rank: 4,
+    next: 5,
+    requirement: "Break 10,000 blocks of any type",
+    flight: "15 minutes",
+    claimBlocks: 75,
+  },
+  {
+    rank: 5,
+    next: 6,
+    requirement: "Reach 10 hours of playtime",
+    flight: "15 minutes",
+    claimBlocks: 100,
+  },
+  {
+    rank: 6,
+    next: 7,
+    requirement: "Cast 10 server votes",
+    flight: "15 minutes",
+    claimBlocks: 100,
+  },
+  {
+    rank: 7,
+    next: 8,
+    requirement: "Have 64 Iron Ingots",
+    flight: "15 minutes",
+    claimBlocks: 100,
+  },
+  {
+    rank: 8,
+    next: 9,
+    requirement: "Cast 15 server votes",
+    flight: "15 minutes",
+    claimBlocks: 100,
+  },
+  {
+    rank: 9,
+    next: 10,
+    requirement: "Kill 500 mobs in total",
+    flight: "30 minutes",
+    claimBlocks: 100,
+  },
+  {
+    rank: 10,
+    next: 11,
+    requirement: "Break 2,500 blocks of any type",
+    flight: "30 minutes",
+    claimBlocks: 100,
+  },
+  {
+    rank: 11,
+    next: 12,
+    requirement: "Kill 150 Skeletons",
+    flight: "1 hour",
+    claimBlocks: 100,
+  },
+  {
+    rank: 12,
+    next: 13,
+    requirement: "Break 20,000 blocks of any type",
+    flight: "1 hour",
+    claimBlocks: 100,
+  },
+  {
+    rank: 13,
+    next: 14,
+    requirement: "Reach 24 hours of playtime",
+    flight: "1 hour",
+    claimBlocks: 100,
+  },
+  {
+    rank: 14,
+    next: 15,
+    requirement: "Cast 30 server votes",
+    flight: "1 hour",
+    claimBlocks: 100,
+  },
+  {
+    rank: 15,
+    next: 16,
+    requirement: "Have 64 Diamonds",
+    flight: "1 hour",
+    claimBlocks: 100,
+  },
+  {
+    rank: 16,
+    next: null,
+    requirement: "Have 10 Emeralds",
+    flight: "1 hour",
+    claimBlocks: 100,
+  },
+];
+
 function CopyButton({ value }) {
   const [copied, setCopied] = useState(false);
 
@@ -279,6 +394,101 @@ function CommandCard({ command }) {
         ) : null}
       </div>
     </article>
+  );
+}
+
+function RankUpSection() {
+  return (
+    <section id="rankup" className="mb-16">
+      <div className="mb-8 rounded-3xl border border-white/10 bg-black/35 p-8 backdrop-blur-md md:p-10">
+        <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-400">
+          Player Progression
+        </p>
+
+        <h2 className="mb-4 text-4xl font-bold text-white md:text-5xl">
+          How to Rank Up
+        </h2>
+
+        <p className="max-w-3xl leading-relaxed text-gray-300">
+          Complete the requirement for your current rank, then use{" "}
+          <code className="rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-2 py-1 text-cyan-200">
+            /rankup
+          </code>{" "}
+          in-game. Every completed rank rewards temporary flight time, one Vote
+          Crate Key, and bonus claim blocks.
+        </p>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-gray-500">
+              Progression
+            </p>
+            <p className="mt-2 font-semibold text-white">16 player ranks</p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-gray-500">
+              Every Rank
+            </p>
+            <p className="mt-2 font-semibold text-white">1 Vote Crate Key</p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-gray-500">
+              Extra Rewards
+            </p>
+            <p className="mt-2 font-semibold text-white">
+              Flight time and claim blocks
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {rankUpLevels.map((level) => (
+          <article
+            key={level.rank}
+            className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-md transition hover:border-cyan-400/40 hover:bg-cyan-400/[0.06]"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-cyan-400">
+                  Current Rank
+                </p>
+                <h3 className="mt-1 text-2xl font-bold text-white">
+                  Rank {level.rank}
+                </h3>
+              </div>
+
+              <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1.5 text-xs font-semibold text-cyan-300">
+                {level.next ? `Unlocks Rank ${level.next}` : "Final Challenge"}
+              </span>
+            </div>
+
+            <div className="mt-5 rounded-xl border border-white/10 bg-black/30 p-4">
+              <p className="text-xs uppercase tracking-[0.22em] text-gray-500">
+                Requirement
+              </p>
+              <p className="mt-2 font-semibold text-gray-100">
+                {level.requirement}
+              </p>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2 text-xs">
+              <span className="rounded-lg border border-purple-400/20 bg-purple-400/10 px-2.5 py-1.5 text-purple-200">
+                {level.flight} flight
+              </span>
+              <span className="rounded-lg border border-yellow-400/20 bg-yellow-400/10 px-2.5 py-1.5 text-yellow-200">
+                1 Vote Key
+              </span>
+              <span className="rounded-lg border border-green-400/20 bg-green-400/10 px-2.5 py-1.5 text-green-200">
+                +{level.claimBlocks} claim blocks
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -383,12 +593,12 @@ export default function WikiPage() {
           </p>
 
           <h1 className="mb-6 text-5xl font-bold md:text-7xl">
-            Command Wiki
+            Solarnet Wiki
           </h1>
 
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-300">
-            Every command you need to explore, compete, and manage Solarnet in
-            one searchable place.
+            Learn how player progression works and find every command you need
+            to explore, compete, and manage Solarnet.
           </p>
 
           <div className="mx-auto mt-8 flex max-w-3xl items-center rounded-2xl border border-white/10 bg-black/45 px-4 shadow-[0_0_35px_rgba(34,211,238,0.08)] transition focus-within:border-cyan-400/50">
@@ -404,6 +614,17 @@ export default function WikiPage() {
               aria-label="Search commands"
             />
           </div>
+        </div>
+
+        <RankUpSection />
+
+        <div className="mb-8">
+          <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-400">
+            Plugin Reference
+          </p>
+          <h2 className="text-4xl font-bold text-white md:text-5xl">
+            Server Commands
+          </h2>
         </div>
 
         <div className="mb-8 rounded-3xl border border-white/10 bg-black/35 p-5 backdrop-blur-md">
