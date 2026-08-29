@@ -763,7 +763,7 @@ export default function WikiPage() {
             ticket if a command is not working as expected.
           </p>
           <a
-            href="https://discord.gg/solarnet"
+            href="https://discord.gg/9uhKQ5nn"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400"
