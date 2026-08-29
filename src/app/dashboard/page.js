@@ -71,28 +71,11 @@ export default async function DashboardPage() {
               </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="mb-2 text-sm uppercase tracking-[0.25em] text-cyan-400">
-                  Discord ID
-                </p>
-                <p className="break-all text-gray-200">{session.user.id}</p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                <p className="mb-2 text-sm uppercase tracking-[0.25em] text-cyan-400">
-                  Email
-                </p>
-                <p className="break-all text-gray-200">
-                  {session.user.email ?? "Not provided"}
-                </p>
-              </div>
-
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <p className="mb-2 text-sm uppercase tracking-[0.25em] text-cyan-400">
                   Minecraft Account
                 </p>
-                <p className="text-gray-400">Not linked yet</p>
+                <p className="text-gray-400">Feature Coming Soon</p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
@@ -103,7 +86,6 @@ export default async function DashboardPage() {
               </div>
             </div>
           </div>
-        </div>
       </section>
     </main>
   );
