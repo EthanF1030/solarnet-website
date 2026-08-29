@@ -13,18 +13,6 @@ const owners = [
   },
 ];
 
-const managers = [
-  {
-    name: "Matt",
-    role: "Manager",
-    emoji: "https://cdn.discordapp.com/emojis/1530265274526335047.png?size=128",
-  },
-  {
-    name: "Adds",
-    role: "Manager",
-    emoji: "https://cdn.discordapp.com/emojis/1530265278913450055.png?size=128",
-  },
-];
 
 const staffInfo = [
   {
