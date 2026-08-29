@@ -103,23 +103,6 @@ export default function StaffPage() {
             ))}
           </div>
         </section>
-
-        <section className="mb-16">
-          <div className="mb-8">
-            <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-400">
-              Operations
-            </p>
-
-            <h2 className="text-3xl font-bold text-white">Managers</h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {managers.map((member) => (
-              <StaffCard key={member.name} member={member} />
-            ))}
-          </div>
-        </section>
-
         <section className="grid gap-6 md:grid-cols-3">
           {staffInfo.map((item) => (
             <InfoCard key={item.title} item={item} />
