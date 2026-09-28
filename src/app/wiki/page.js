@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import SpaceBackground from "../components/SpaceBackground";
 
 const plugins = [
@@ -126,12 +127,13 @@ const plugins = [
         permission: "solarnetenchantments.use",
       },
       {
-        syntax: "/se info <enchantment>",
-        description: "Shows an enchantment's levels, effects, and compatible items.",
+        syntax: "/se recipe [enchantment]",
+        description: "Opens the recipe browser or shows one enchantment recipe.",
         permission: "solarnetenchantments.use",
+        aliases: ["/se recipes"],
       },
       {
-        syntax: "/se give <player> <enchantment> <level>",
+        syntax: "/se give <player> <enchantment> [level] [amount]",
         description: "Gives a custom enchantment book to a player.",
         permission: "solarnetenchantments.admin",
         admin: true,
@@ -533,12 +535,6 @@ export default function WikiPage() {
     };
   }, []);
 
-  useEffect(() => {
-    if (!isStaff && access === "admin") {
-      setAccess("all");
-    }
-  }, [access, isStaff]);
-
   const visiblePlugins = useMemo(() => {
     const term = query.trim().toLowerCase();
 
@@ -617,6 +613,46 @@ export default function WikiPage() {
         </div>
 
         <RankUpSection />
+
+        <section className="mb-16">
+          <div className="mb-6">
+            <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-400">
+              Wiki Guides
+            </p>
+            <h2 className="text-4xl font-bold text-white md:text-5xl">
+              Learn Solarnet Systems
+            </h2>
+          </div>
+
+          <Link
+            href="/wiki/enchantments"
+            className="group block overflow-hidden rounded-3xl border border-orange-400/20 bg-gradient-to-br from-orange-400/[0.1] via-white/[0.04] to-purple-400/[0.08] p-7 shadow-[0_0_45px_rgba(251,146,60,0.08)] backdrop-blur-md transition hover:-translate-y-1 hover:border-orange-300/40 md:p-9"
+          >
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-start gap-5">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-orange-300/30 bg-orange-300/10 text-3xl text-orange-200">
+                  ✦
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-orange-300">
+                    Complete Player Guide
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold text-white md:text-3xl">
+                    Custom Enchantments
+                  </h3>
+                  <p className="mt-3 max-w-2xl leading-relaxed text-gray-300">
+                    Browse all 11 crafting recipes, learn what each enchantment
+                    does, and follow the Runic Forge application guide.
+                  </p>
+                </div>
+              </div>
+
+              <span className="shrink-0 font-semibold text-orange-200 transition group-hover:translate-x-1">
+                Open guide →
+              </span>
+            </div>
+          </Link>
+        </section>
 
         <div className="mb-8">
           <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-400">
